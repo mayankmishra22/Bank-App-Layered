@@ -1,83 +1,79 @@
-# Bank-App-Layered
-🏦 Banking System Console Application
-A simple command-line banking application built with Spring Boot, demonstrating a layered architecture (Controller, Service, Repository) with Spring IoC and DI. The application uses Spring Data JPA to interact with a MySQL database.
+# 💳 Banking System Console Application
 
-🚀 Features
-This application provides the following features through a console interface:
+A simple **command-line banking application** built with **Spring Boot**, demonstrating a layered architecture using Spring IoC and DI principles. The application leverages **Spring Data JPA** to interact with a **MySQL** database.
 
-Create Account: Create a new bank account with an initial balance.
+---
 
-Deposit: Deposit funds into an existing account.
+## 🚀 Features
 
-Withdraw: Withdraw funds from an account, with balance checks.
+This console-based application provides the following functionalities:
 
-View Account: Look up and display the details of a specific account by ID.
+- 🏦 **Create Account**: Register a new account with an initial balance.
+- 💰 **Deposit**: Add funds to an existing account.
+- 💸 **Withdraw**: Withdraw funds, with balance validation.
+- 🔍 **View Account**: Display details of a specific account.
+- 📋 **List All Accounts**: Show all registered accounts.
+- ❌ **Exit**: Gracefully close the application.
 
-List All Accounts: Display a list of all existing accounts.
+---
 
-Exit: Close the application.
+## ⚙️ Technologies Used
 
-⚙️ Technologies Used
-Java 11+: The core programming language.
+| Technology     | Purpose                                       |
+|----------------|-----------------------------------------------|
+| Java 11+       | Core programming language                     |
+| Spring Boot    | Framework for building and managing the app   |
+| Spring Data JPA| Simplified database interaction               |
+| Hibernate      | ORM provider for JPA                          |
+| MySQL          | Relational database                           |
+| Maven          | Dependency and build lifecycle management     |
 
-Spring Boot: Provides the foundation for building a production-ready, stand-alone Spring application.
-
-Spring Data JPA: Simplifies data access by automatically generating repository implementations for your entities.
-
-Hibernate: The JPA provider used by Spring Data JPA for Object-Relational Mapping (ORM).
-
-MySQL: The relational database used to store account information.
-
-Maven: The build automation tool for managing dependencies and project lifecycle.
-
-📂 Project Structure
+---
 banking-app/
 ├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── com/
-│   │   │       └── example/
-│   │   │           └── bankingapp/
-│   │   │               ├── config/
-│   │   │               │   └── AppConfig.java
-│   │   │               ├── controller/
-│   │   │               │   └── AccountController.java
-│   │   │               ├── model/
-│   │   │               │   └── Account.java
-│   │   │               ├── repository/
-│   │   │               │   └── AccountRepository.java
-│   │   │               ├── service/
-│   │   │               │   └── AccountService.java
-│   │   │               └── BankingApplication.java
-│   │   └── resources/
-│   │       └── application.properties
-└── pom.xml
-🛠️ Prerequisites
-Before you begin, ensure you have the following installed:
+│ ├── main/
+│ │ ├── java/
+│ │ │ └── com/example/bankingapp/
+│ │ │ ├── config/ # Spring configuration
+│ │ │ │ └── AppConfig.java
+│ │ │ ├── controller/ # Console input/output logic
+│ │ │ │ └── AccountController.java
+│ │ │ ├── model/ # JPA entity classes
+│ │ │ │ └── Account.java
+│ │ │ ├── repository/ # JPA repository interfaces
+│ │ │ │ └── AccountRepository.java
+│ │ │ ├── service/ # Business logic layer
+│ │ │ │ └── AccountService.java
+│ │ │ └── BankingApplication.java # Main application class
+│ └── resources/
+│ └── application.properties # Configuration file
+├── pom.xml # Maven project descriptor
 
-Java Development Kit (JDK) 11 or higher
+yaml
+Copy
+Edit
 
-Apache Maven
 
-MySQL Server running on your local machine
+---
 
-A MySQL user with the username root and password root
+## 🛠️ Prerequisites
 
-⚙️ Setup Instructions
-1. Database Setup (MySQL)
-This project is configured to automatically create the database and table on startup.
+Make sure the following are installed on your system:
 
-Ensure your MySQL server is running.
+- Java JDK 11 or higher
+- Apache Maven
+- MySQL Server (local instance)
+- MySQL user: `root` | Password: `root` (or update accordingly)
 
-The application will attempt to connect to a database named banking_db on localhost:3306. If it doesn't exist, Spring will automatically create it for you thanks to the spring.datasource.url property in application.properties.
+---
 
-The Account entity will be mapped to a table named account in the banking_db database, and its schema will be automatically updated by Hibernate (spring.jpa.hibernate.ddl-auto=update).
+## ⚙️ Setup Instructions
 
-2. Configure application.properties
-The src/main/resources/application.properties file contains the database connection details. Make sure these settings match your local MySQL configuration.
+### 1️⃣ Database Configuration
 
-Properties
+The app connects to a MySQL DB named `banking_db` (auto-created if it doesn’t exist):
 
+```properties
 # MySQL DataSource configuration
 spring.datasource.url=jdbc:mysql://localhost:3306/banking_db?createDatabaseIfNotExist=true
 spring.datasource.username=root
@@ -88,19 +84,27 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
-Note: If your MySQL username or password is not root, please update these values accordingly.
 
-3. Build and Run the Application
-Navigate to the root directory of the project in your terminal and execute the following Maven command:
+Open a terminal in the root project directory and run:
 
-Bash
-
+bash
+Copy
+Edit
 mvn spring-boot:run
-This command will download all dependencies, compile the code, and start the Spring Boot application. The console menu will appear in your terminal.
+This will:
+
+Download dependencies
+
+Compile the project
+
+Start the Spring Boot application
 
 🎮 How to Use
-Once the application is running, you will see a menu of options in your terminal. Enter the number corresponding to the action you wish to perform and press Enter.
+Once launched, the following menu will appear:
 
+markdown
+Copy
+Edit
 --- Banking System Menu ---
 1. Create Account
 2. Deposit
@@ -109,51 +113,65 @@ Once the application is running, you will see a menu of options in your terminal
 5. List All Accounts
 6. Exit
 Enter your choice:
-Example Usage:
-Create an Account:
+📌 Sample Workflow
+✅ Create an Account
+yaml
+Copy
+Edit
+Enter: 1
+Name: John Doe
+Initial Balance: 1000.00
+🔍 View an Account
+yaml
+Copy
+Edit
+Enter: 4
+Account ID: 1
+💰 Deposit Funds
+yaml
+Copy
+Edit
+Enter: 2
+Account ID: 1
+Amount: 500
+💸 Withdraw Funds
+yaml
+Copy
+Edit
+Enter: 3
+Account ID: 1
+Amount: 200
+📋 List All Accounts
+makefile
+Copy
+Edit
+Enter: 5
+❌ Exit Application
+makefile
+Copy
+Edit
+Enter: 6
+🧪 Verifying Database Changes
+Connect to MySQL and run the following:
 
-Enter 1
-
-Enter a name (e.g., John Doe)
-
-Enter an initial balance (e.g., 1000.00)
-
-The application will display a success message with the new account's details, including its ID.
-
-View an Account:
-
-Enter 4
-
-Enter the account ID you wish to view.
-
-Deposit:
-
-Enter 2
-
-Enter the account ID to deposit into.
-
-Enter the amount to deposit.
-
-Withdraw:
-
-Enter 3
-
-Enter the account ID to withdraw from.
-
-Enter the amount to withdraw. The application will prevent withdrawals that exceed the current balance.
-
-List All Accounts:
-
-Enter 5 to see a list of all accounts currently in the database.
-
-Exit:
-
-Enter 6 to gracefully shut down the application.
-
-Verifying Database Changes
-You can verify that the data is being saved and updated in real-time by using a MySQL client (like the command-line client or MySQL Workbench). Simply connect to the banking_db database and run the following SQL query:
-
-SQL
-
+sql
+Copy
+Edit
+USE banking_db;
 SELECT * FROM account;
-You will see the records change live as you interact with the console application.
+You will see real-time updates based on your interactions.
+
+🧑‍💻 Author
+Mayank Mishra
+
+📄 License
+This project is open-source and available under the MIT License.
+
+🌟 Contribute
+Found a bug or want to suggest an enhancement? Open an issue or submit a pull request. Contributions are welcome!
+
+📌 Acknowledgements
+Thanks to the Spring and Hibernate communities for creating robust tools that make application development efficient and elegant.
+
+## 📂 Project Structure
+
