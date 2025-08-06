@@ -4,16 +4,16 @@ A simple **command-line banking application** built with **Spring Boot**, demons
 
 ---
 
-## 🚀 Features
+##  Features
 
 This console-based application provides the following functionalities:
 
-- 🏦 **Create Account**: Register a new account with an initial balance.
-- 💰 **Deposit**: Add funds to an existing account.
-- 💸 **Withdraw**: Withdraw funds, with balance validation.
-- 🔍 **View Account**: Display details of a specific account.
-- 📋 **List All Accounts**: Show all registered accounts.
-- ❌ **Exit**: Gracefully close the application.
+-  **Create Account**: Register a new account with an initial balance.
+-  **Deposit**: Add funds to an existing account.
+-  **Withdraw**: Withdraw funds, with balance validation.
+-  **View Account**: Display details of a specific account.
+-  **List All Accounts**: Show all registered accounts.
+-  **Exit**: Gracefully close the application.
 
 ---
 
